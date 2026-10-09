@@ -1,18 +1,17 @@
 package software.ulpgc.katas;
 
 import java.io.*;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class Main {
     static void main() throws IOException {
-        File file = new File("document.iso8859-1.txt");
-        System.out.println(file.getAbsolutePath());
-        System.out.println(file.length());
-        System.out.println(file.canRead());
-        try (InputStream is = new FileInputStream(file)) {
-            byte[] bytes = is.readAllBytes();
-            System.out.println(new String(bytes, StandardCharsets.ISO_8859_1));
+        URL url = new URL("https://raw.githubusercontent.com/sachin365123/CSV-files-for-Data-Science-and-Machine-Learning/refs/heads/main/Employee%20Dataset%20-%20TSV.txt");
+        File file = new File("employees.tsv");
+        try (InputStream is = url.openStream(); OutputStream os = new FileOutputStream(file)) {
+            os.write(is.readAllBytes());
         }
+
     }
 }
