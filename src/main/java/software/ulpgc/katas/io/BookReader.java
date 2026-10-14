@@ -35,13 +35,14 @@ public interface BookReader {
     }
 
     static Book toBook(String[] fields) {
+        if (fields.length < 2) return null;
         for (int i = 0; i < fields.length; i++) {
             if (fields[i].isBlank()) {
                 fields[i] = null;
             }
         }
 
-        return new Book();
+        return new Book(fields[0], fields[1]);
     }
 
 }

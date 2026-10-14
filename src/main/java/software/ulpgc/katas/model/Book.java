@@ -1,5 +1,5 @@
 package software.ulpgc.katas.model;
 
-public record Book() {
+public record Book(String author, String title) {
 
 }
