@@ -1,22 +1,23 @@
 package software.ulpgc.katas;
 
-import software.ulpgc.katas.io.UrlBookReader;
-import software.ulpgc.katas.io.BookReader;
-import software.ulpgc.katas.model.Book;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.List;
+import software.ulpgc.katas.io.*;
+import java.io.*;
+import java.net.URI;
 
 public class Main {
-    static void main() throws IOException {
-        URL url = new URL("https://gist.githubusercontent.com/um-zagaa/210ea9ca512900df7ecde73730a4bc40/raw/9d7f3d6f8f741c99a1ce3bc5b7a0c33ca89f5b8a/author_books.csv");
-        BookReader reader = new UrlBookReader(url);
-        List<Book> books = reader.readAll();
-        for (Book book : books) {
-            System.out.println(book);
+    public static void main(String[] args) {
+        String source = args.length == 0 ? "data.csv" : args[0];
+        try {
+            BookReader reader = source.contains("://")
+                    ? new UrlBookReader(URI.create(source).toURL())
+                    : new FileBookReader(source);
+            var summary = BookSummary.calculate(reader.readAll());
+            SummaryWriter.write(summary, System.out);
+            try (OutputStream output = new FileOutputStream("summary.txt")) {
+                SummaryWriter.write(summary, output);
+            }
+        } catch (IOException | IllegalArgumentException e) {
+            System.err.println("Error al leer o escribir datos: " + e.getMessage());
         }
-
-
     }
 }
