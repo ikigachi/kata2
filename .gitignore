@@ -1,18 +1,20 @@
-target/
+
 out/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 .kotlin
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# IntelliJ IDEA
+.idea/
 *.iml
-*.ipr
+
+# Maven
+target/
+
+# Java
+*.class
+*.jar
 
 ### Eclipse ###
 .apt_generated
@@ -38,3 +40,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+.idea/
+*.iml
