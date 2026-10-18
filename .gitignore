@@ -42,3 +42,5 @@ build/
 .DS_Store
 .idea/
 *.iml
+
+summary.txt
