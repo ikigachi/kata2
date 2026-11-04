@@ -8,10 +8,10 @@ public class Main {
     public static void main(String[] args) {
         String source = args.length == 0 ? "data.tsv" : args[0];
         try {
-            EmployeeReader reader = source.contains("://")
-                    ? new UrlEmployeeReader(URI.create(source).toURL())
-                    : new FileEmployeeReader(source);
-            var summary = EmployeeSummary.calculate(reader.readAll());
+            TitleReader reader = source.contains("://")
+                    ? new UrlTitleReader(URI.create(source).toURL())
+                    : new FileTitleReader(source);
+            var summary = MovieSummary.calculate(reader.readAll());
             SummaryWriter.write(summary, System.out);
             try (OutputStream output = new FileOutputStream("summary.txt")) {
                 SummaryWriter.write(summary, output);
