@@ -14,7 +14,7 @@ public class FileEmployeeReader implements EmployeeReader {
     @Override
     public List<Employee> readAll() throws IOException {
         try (InputStream inputStream = new FileInputStream(path)) {
-            return EmployeeReader.loadFrom(inputStream);
+            return TsvEmployeeParser.parse(inputStream);
         }
     }
 }

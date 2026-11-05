@@ -15,7 +15,7 @@ public class UrlEmployeeReader implements EmployeeReader {
     @Override
     public List<Employee> readAll() throws IOException {
         try (InputStream inputStream = url.openStream()) {
-            return EmployeeReader.loadFrom(inputStream);
+            return TsvEmployeeParser.parse(inputStream);
         }
     }
 }
