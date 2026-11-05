@@ -13,4 +13,8 @@ public record Videogame(
         String otherSales,
         String globalSales
 ) {
+    public Videogame {
+        if (name == null || name.isBlank()) throw new IllegalArgumentException("Videogame name is required");
+        if (platform == null || platform.isBlank()) throw new IllegalArgumentException("Platform is required");
+    }
 }

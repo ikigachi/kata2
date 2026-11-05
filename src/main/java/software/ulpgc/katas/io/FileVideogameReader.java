@@ -14,7 +14,7 @@ public class FileVideogameReader implements VideogameReader {
     @Override
     public List<Videogame> readAll() throws IOException {
         try (InputStream inputStream = new FileInputStream(path)) {
-            return VideogameReader.loadFrom(inputStream);
+            return CsvVideogameParser.parse(inputStream);
         }
     }
 }

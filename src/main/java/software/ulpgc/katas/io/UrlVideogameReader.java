@@ -15,7 +15,7 @@ public class UrlVideogameReader implements VideogameReader {
     @Override
     public List<Videogame> readAll() throws IOException {
         try (InputStream inputStream = url.openStream()) {
-            return VideogameReader.loadFrom(inputStream);
+            return CsvVideogameParser.parse(inputStream);
         }
     }
 }
