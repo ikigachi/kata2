@@ -15,7 +15,7 @@ public class UrlBookReader implements BookReader {
     @Override
     public List<Book> readAll() throws IOException {
         try (InputStream inputStream = url.openStream()) {
-            return BookReader.loadFrom(inputStream);
+            return CsvBookParser.parse(inputStream);
         }
     }
 }

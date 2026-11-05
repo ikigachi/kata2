@@ -14,7 +14,7 @@ public class FileBookReader implements BookReader {
     @Override
     public List<Book> readAll() throws IOException {
         try (InputStream inputStream = new FileInputStream(path)) {
-            return BookReader.loadFrom(inputStream);
+            return CsvBookParser.parse(inputStream);
         }
     }
 }

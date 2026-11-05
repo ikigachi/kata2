@@ -16,8 +16,10 @@ public class Main {
             try (OutputStream output = new FileOutputStream("summary.txt")) {
                 SummaryWriter.write(summary, output);
             }
-        } catch (IOException | IllegalArgumentException e) {
-            System.err.println("Error al leer o escribir datos: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("Unable to read or write data: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.err.println("Invalid input: " + e.getMessage());
         }
     }
 }
