@@ -14,7 +14,7 @@ public class FileTitleReader implements TitleReader {
     @Override
     public List<Title> readAll() throws IOException {
         try (InputStream inputStream = new FileInputStream(path)) {
-            return TitleReader.loadFrom(inputStream);
+            return TsvTitleParser.parse(inputStream);
         }
     }
 }

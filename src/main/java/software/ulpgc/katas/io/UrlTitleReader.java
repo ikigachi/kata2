@@ -15,7 +15,7 @@ public class UrlTitleReader implements TitleReader {
     @Override
     public List<Title> readAll() throws IOException {
         try (InputStream inputStream = url.openStream()) {
-            return TitleReader.loadFrom(inputStream);
+            return TsvTitleParser.parse(inputStream);
         }
     }
 }
