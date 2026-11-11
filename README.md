@@ -61,7 +61,6 @@ The parser and writer leave caller-supplied streams open. Input adapters close t
 
 The kata was repeated in separate branches:
 
-- `master`: employees grouped by gender.
 - `book-version`: books grouped by author.
 - `videogame-version`: videogames grouped by platform.
 - `movie-version`: movies grouped by genre, with separate TSV parsing and domain validation.
@@ -82,4 +81,4 @@ The URL adapter is tested with a local file URL, so tests do not need an Interne
 
 ## Video
 
-Pending: add the explanatory video link (maximum duration: 7 minutes).
+<a href="https://youtu.be/i9mgIezzJ_g"><img src="https://img.youtube.com/vi/i9mgIezzJ_g/maxresdefault.jpg" alt="Kata 2 - Video Explanation" width="480"></a>
